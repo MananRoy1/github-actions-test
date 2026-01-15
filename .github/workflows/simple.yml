@@ -1,2 +1,23 @@
-name: shell commands
-on: push
+name: Shell Commands Demo
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  run-shell-command:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Echo a string
+        run: echo "Hello Manan"
+
+      - name: Run multiline script
+        run: |
+          node -v
+          npm -v
